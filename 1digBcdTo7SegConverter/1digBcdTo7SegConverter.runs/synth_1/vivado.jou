@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Oct 15 17:51:06 2019
+# Process ID: 1628
+# Current directory: D:/Data/VHDLProjecten/1digBcdTo7SegConverter/1digBcdTo7SegConverter.runs/synth_1
+# Command line: vivado.exe -log DIPswitchTo7segDisplayConverter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source DIPswitchTo7segDisplayConverter.tcl
+# Log file: D:/Data/VHDLProjecten/1digBcdTo7SegConverter/1digBcdTo7SegConverter.runs/synth_1/DIPswitchTo7segDisplayConverter.vds
+# Journal file: D:/Data/VHDLProjecten/1digBcdTo7SegConverter/1digBcdTo7SegConverter.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source DIPswitchTo7segDisplayConverter.tcl -notrace

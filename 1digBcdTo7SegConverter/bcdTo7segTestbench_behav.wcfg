@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="bcdTo7segTestbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="bcdTo7segTestbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="491940000fs"></ZoomStartTime>
+      <ZoomEndTime time="491947311fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="147"></NameColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/bcdTo7segTestbench/InputVector" type="array">
+      <obj_property name="ElementShortName">InputVector[3:0]</obj_property>
+      <obj_property name="ObjectShortName">InputVector[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bcdTo7segTestbench/OutputVector" type="array">
+      <obj_property name="ElementShortName">OutputVector[6:0]</obj_property>
+      <obj_property name="ObjectShortName">OutputVector[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bcdTo7segTestbench/BcdTo7Seg1DigitaleDesign/bcd" type="array">
+      <obj_property name="ElementShortName">bcd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">bcd[3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/bcdTo7segTestbench/BcdTo7Seg1DigitaleDesign/sevenSeg" type="array">
+      <obj_property name="ElementShortName">sevenSeg[6:0]</obj_property>
+      <obj_property name="ObjectShortName">sevenSeg[6:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
