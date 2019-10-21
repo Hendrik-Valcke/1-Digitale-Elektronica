@@ -1,4 +1,0 @@
-`lol`
-```vhdl
-signal
-```
