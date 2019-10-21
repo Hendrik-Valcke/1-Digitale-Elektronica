@@ -17,8 +17,6 @@ Er worden 3 soorten sources gebruikt:
 	* Constraint files worden gebruikt om de pinnetjes van het fysieke bordje te koppelen aan de poorten die je gebruikt in vhdl
 	
 ## Handige tips en links
-* [Wiki]([https://github.com/WatcherWhale/DigitalElectronics/wiki](https://github.com/WatcherWhale/DigitalElectronics/wiki?fbclid=IwAR0Nv1RKBLPfQE-klfs6RANYyPt30QRyBN2Z2aBA4Enmcau1n1RwMy-GZjw))  
-* [Mathias' repo]([https://github.com/WatcherWhale/DigitalElectronics](https://github.com/WatcherWhale/DigitalElectronics?fbclid=IwAR17vg1ft30vdusxQycFidYsqtGyZaqxvTViK3r8aK1ha74MBK6Hvx81l_w))
-* [zelfmoordlijn]([https://www.zelfmoord1813.be/](https://www.zelfmoord1813.be/))  
-
-
+* [Wiki](https://github.com/WatcherWhale/DigitalElectronics/wiki)  
+* [Mathias' repo](https://github.com/WatcherWhale/DigitalElectronics)
+* [zelfmoordlijn](https://www.zelfmoord1813.be/)  
