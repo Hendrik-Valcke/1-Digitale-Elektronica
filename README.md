@@ -5,7 +5,7 @@ Iedereen is welkom om mijn code te bekijken en te delen.
 Gelieve de code niet letterlijk te kopiëren, probeer altijd de code te begrijpen voor je ze gebruikt.
 
 ## Waar vind ik wat?
-De sources bevinden zich in projectnaam/projectnaam.srcs
+De sources bevinden zich in projectnaam/projectnaam.srcs  
 Er worden 3 soorten sources gebruikt:
 * Design sources: de code zelf (in vhdl)
 	* Deze sources eindigen in .vhd en bevinden zich vaak in de sources_1 folder
