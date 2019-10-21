@@ -18,5 +18,8 @@ Er worden 3 soorten sources gebruikt:
 	
 ## Handige tips en links
 * [Wiki](https://github.com/WatcherWhale/DigitalElectronics/wiki)  
-* [Mathias' repo](https://github.com/WatcherWhale/DigitalElectronics)
+* [Mathias' repository](https://github.com/WatcherWhale/DigitalElectronics)
 * [zelfmoordlijn](https://www.zelfmoord1813.be/)  
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3ODAxNjIyXX0=
+-->
