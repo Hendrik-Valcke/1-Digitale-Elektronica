@@ -58,8 +58,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../1digDIPto7segments/1digDIPto7segments.srcs/sources_1/new/DIPswitchTo7segDisplayConverter.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/new/DIPswitchTo7segDisplayConverter.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../1digDIPto7segments/1digDIPto7segments.srcs/sources_1/new/DIPswitchTo7segDisplayConverter.vhd"/>
+        <Attr Name="ImportTime" Val="1571154658"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
