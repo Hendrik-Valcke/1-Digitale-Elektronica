@@ -32,7 +32,7 @@ set_property ip_output_repo d:/Data/VHDLProjecten/1digBcdTo7SegConverter/1digBcd
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   D:/Data/VHDLProjecten/1digBcdTo7SegConverter/1digBcdTo7SegConverter.srcs/sources_1/new/BcdTo7Seg1Digitale.vhd
-  D:/Data/VHDLProjecten/1digDIPto7segments/1digDIPto7segments.srcs/sources_1/new/DIPswitchTo7segDisplayConverter.vhd
+  D:/Data/VHDLProjecten/1digBcdTo7SegConverter/1digBcdTo7SegConverter.srcs/sources_1/new/DIPswitchTo7segDisplayConverter.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

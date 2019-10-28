@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Tue Oct 15 17:52:36 2019
+| Date             : Tue Oct 22 17:40:56 2019
 | Host             : LAPTOP-7KFHSKA6 running 64-bit major release  (build 9200)
 | Command          : report_power -file DIPswitchTo7segDisplayConverter_power_routed.rpt -pb DIPswitchTo7segDisplayConverter_power_summary_routed.pb -rpx DIPswitchTo7segDisplayConverter_power_routed.rpx
 | Design           : DIPswitchTo7segDisplayConverter
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 15.691 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 14.619 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 15.321                           |
-| Device Static (W)        | 0.370                            |
+| Dynamic (W)              | 14.295                           |
+| Device Static (W)        | 0.324                            |
 | Effective TJA (C/W)      | 4.6                              |
-| Max Ambient (C)          | 13.4                             |
-| Junction Temperature (C) | 96.6                             |
+| Max Ambient (C)          | 18.3                             |
+| Junction Temperature (C) | 91.7                             |
 | Confidence Level         | Low                              |
 | Setting File             | ---                              |
 | Simulation Activity File | ---                              |
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.195 |       36 |       --- |             --- |
-|   LUT as Logic |     0.194 |       24 |     63400 |            0.04 |
-|   F7/F8 Muxes  |    <0.001 |        1 |     63400 |           <0.01 |
+| Slice Logic    |     0.220 |       61 |       --- |             --- |
+|   LUT as Logic |     0.213 |       47 |     63400 |            0.07 |
+|   F7/F8 Muxes  |     0.008 |        9 |     63400 |            0.01 |
 |   Others       |     0.000 |        1 |       --- |             --- |
-| Signals        |     0.394 |       49 |       --- |             --- |
-| I/O            |    14.733 |       31 |       210 |           14.76 |
-| Static Power   |     0.370 |          |           |                 |
-| Total          |    15.691 |          |           |                 |
+| Signals        |     0.400 |       59 |       --- |             --- |
+| I/O            |    13.674 |       33 |       210 |           15.71 |
+| Static Power   |     0.324 |          |           |                 |
+| Total          |    14.619 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -69,16 +69,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.883 |       0.652 |      0.230 |
-| Vccaux    |       1.800 |     0.584 |       0.538 |      0.047 |
-| Vcco33    |       3.300 |     4.156 |       4.152 |      0.004 |
+| Vccint    |       1.000 |     0.883 |       0.688 |      0.195 |
+| Vccaux    |       1.800 |     0.540 |       0.499 |      0.042 |
+| Vcco33    |       3.300 |     3.855 |       3.851 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.006 |       0.000 |      0.006 |
+| Vccbram   |       1.000 |     0.005 |       0.000 |      0.005 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -136,7 +136,7 @@ Table of Contents
 +---------------------------------+-----------+
 | Name                            | Power (W) |
 +---------------------------------+-----------+
-| DIPswitchTo7segDisplayConverter |    15.321 |
+| DIPswitchTo7segDisplayConverter |    14.295 |
 +---------------------------------+-----------+
 
 

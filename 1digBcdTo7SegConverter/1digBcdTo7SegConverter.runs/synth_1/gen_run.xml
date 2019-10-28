@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1571154664">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1571758744">
   <File Type="PA-TCL" Name="DIPswitchTo7segDisplayConverter.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="DIPswitchTo7segDisplayConverter_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="DIPswitchTo7segDisplayConverter_reports.tcl"/>
   <File Type="RDS-RDS" Name="DIPswitchTo7segDisplayConverter.vds"/>
   <File Type="RDS-UTIL" Name="DIPswitchTo7segDisplayConverter_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="DIPswitchTo7segDisplayConverter_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="DIPswitchTo7segDisplayConverter.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="DIPswitchTo7segDisplayConverter_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="DIPswitchTo7segDisplayConverter_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/BcdTo7Seg1Digitale.vhd">
@@ -14,10 +17,8 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/new/DIPswitchTo7segDisplayConverter.vhd">
+    <File Path="$PSRCDIR/sources_1/new/DIPswitchTo7segDisplayConverter.vhd">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../1digDIPto7segments/1digDIPto7segments.srcs/sources_1/new/DIPswitchTo7segDisplayConverter.vhd"/>
-        <Attr Name="ImportTime" Val="1571154658"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
