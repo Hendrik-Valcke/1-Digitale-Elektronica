@@ -2,9 +2,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
 
---AL GEDAAN: opgave1,opgave2,opgave3-(nog niet gecontroleerd)
---TO DO: controleren opgave 3
---commentaar met ** betekent dat het in een latere opgave gebruikt zal worden
+--AL GEDAAN: opgave1,opgave2,opgave3
+--TO DO: /
 
 entity DIPswitchTo7segDisplayConverter is
     Port (
@@ -35,8 +34,8 @@ architecture Behavioral of DIPswitchTo7segDisplayConverter is
     end component;
     --signalen
     signal binair : unsigned(6 downto 0); --7 bits want we gebruiken 7 switches per getal, dus een 7 bit binair getal
-    signal input: unsigned(3 downto 0);
-    signal output : std_logic_vector(6 downto 0);
+    signal input: unsigned(3 downto 0); --ingangssignaal voor component
+    signal output : std_logic_vector(6 downto 0); --uitgangssignaal voor component
     signal bcdTiental: unsigned(3 downto 0);
     signal bcdEental: unsigned(3 downto 0);  
     
@@ -51,11 +50,10 @@ begin
     begin    
         -- de middelste switches (8 en 7) bepalen welke displays moeten branden 
         if SW(8) = '1' and SW(7) = '1' then--dus de switches staan op 1 en 1
-            AN(0)<='0'; --meest rechtse display is dan aan: dus eental
+            AN(0)<='0'; --meest rechtse display is aan: dus eental
             AN(1)<='1';
             AN(6)<='1';
             AN(7)<='1';
-            --binair <= unsigned(SW(6 downto 0));--input wordt gegeven door de rechtse 7 switches
             input <= bcdEental;
             if BTNC = '1' and SW(6)='1' then  --2's complement mode, Most Significant Bit v.h. rechtse getal is 1 dus is negatief
                 DP <= '0';
@@ -67,10 +65,9 @@ begin
                              
         elsif SW(8) = '1' and SW(7) = '0' then--dus de switches staan op 1 en 0
             AN(0)<='1';  
-            AN(1)<='0'; --tweede-rechtse display is dan aan: dus tiental
+            AN(1)<='0'; --tweede-rechtse display is aan: dus tiental
             AN(6)<='1';
             AN(7)<='1';
-            --binair <= unsigned(SW(6 downto 0));--input wordt gegeven door de rechtse 7 switches
             input <= bcdTiental;
             if BTNC = '1' and SW(6)='1' then  --2's complement mode, Most Significant Bit v.h. rechtse getal is 1 dus is negatief
                 DP <= '0';
@@ -83,9 +80,8 @@ begin
         elsif SW(8)='0' and SW(7)='1' then--dus de switches staan op 0 en 1
             AN(0)<='1';    
             AN(1)<='1';
-            AN(6)<='0'; --tweede linkse display is dan aan: dus eental
+            AN(6)<='0'; --tweede linkse display is aan: dus eental
             AN(7)<='1';
-            --binair <= unsigned(SW(15 downto 9));--input wordt gegeven door de linkse 7 switches
             input <= bcdEental;
             if BTNC = '1' and SW(15)='1' then  --2's complement mode, Most Significant Bit v.h. linkse getal is 1 dus is negatief
                 DP <= '0';
@@ -99,8 +95,7 @@ begin
             AN(0)<='1';
             AN(1)<='1';
             AN(6)<='1';
-            AN(7)<='0'; --meest linkse display is dan aan: dus tiental
-            --binair <= unsigned(SW(15 downto 9));--input wordt gegeven door de linkse 7 switches
+            AN(7)<='0'; --meest linkse display is aan: dus tiental
             input <= bcdTiental;
             if BTNC = '1' and SW(15)='1' then  --2's complement mode, Most Significant Bit v.h. linkse getal is 1 dus is negatief
                             DP <= '0';
@@ -110,8 +105,8 @@ begin
                             binair <= unsigned(SW(15 downto 9));--input wordt gegeven door de rechtse 7 switches 
                         end if;
         else                  
-            DP <= '1';
-            binair <= "1111111";--regels van combinatorisch proces: altijd waarde toekennen!
+            DP <= '1'; --regels van combinatorisch proces: altijd waarde toekennen!
+            binair <= "1111111";
             input <= bcdTiental;                 
         end if;    
             
