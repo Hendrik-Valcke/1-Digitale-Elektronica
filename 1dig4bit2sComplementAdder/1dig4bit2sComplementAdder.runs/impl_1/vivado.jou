@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Nov  4 11:08:47 2019
+# Process ID: 10260
+# Current directory: D:/Data/VHDLProjecten/1dig4bit2sComplementAdder/1dig4bit2sComplementAdder.runs/impl_1
+# Command line: vivado.exe -log fourBit2sComplementAdder.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source fourBit2sComplementAdder.tcl -notrace
+# Log file: D:/Data/VHDLProjecten/1dig4bit2sComplementAdder/1dig4bit2sComplementAdder.runs/impl_1/fourBit2sComplementAdder.vdi
+# Journal file: D:/Data/VHDLProjecten/1dig4bit2sComplementAdder/1dig4bit2sComplementAdder.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source fourBit2sComplementAdder.tcl -notrace
