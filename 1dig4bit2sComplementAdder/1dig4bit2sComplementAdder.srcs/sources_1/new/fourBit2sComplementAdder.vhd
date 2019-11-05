@@ -6,6 +6,8 @@
 --  gelijk is aan 0 => Gebruik LED15-11, zodat er nooit overflow kan optreden
 --  gelijk is aan 1 => Gebruik LED14-11 (LED15=uit) en doe aan "wrap around"
 
+-- DISCLAIMER: 2's complement moet nog nagekeken worden, vertrouw er niet op dat dit klopt
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
@@ -33,7 +35,7 @@ begin
         if overflowMode = '0' then --extra bit toevoegen vanvoor
             if twosCompMode = '0' then --gewoon optellen
                 LED <= std_logic_vector(resize(binL,5) + resize(binR,5)); 
-            else --2's complement
+            else --twosCompMode = '1'           
                 LED <= std_logic_vector(resize(not(binL)+1,5) + resize(not(binR)+1,5));
             end if;
         else --overflowMode = '1' dus 4 bits gebruiken, 5de bit '0' geven

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1572972877">
+  <File Type="BITSTR-BMM" Name="fourBit2sComplementVermenigvuldiger_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="fourBit2sComplementVermenigvuldiger_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="fourBit2sComplementVermenigvuldiger_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="fourBit2sComplementVermenigvuldiger.tcl"/>
+  <File Type="OPT-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="fourBit2sComplementVermenigvuldiger_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="fourBit2sComplementVermenigvuldiger_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="fourBit2sComplementVermenigvuldiger_reports.tcl"/>
+  <File Type="OPT-DRC" Name="fourBit2sComplementVermenigvuldiger_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="fourBit2sComplementVermenigvuldiger.hwdef"/>
+  <File Type="PWROPT-DCP" Name="fourBit2sComplementVermenigvuldiger_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="fourBit2sComplementVermenigvuldiger_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="fourBit2sComplementVermenigvuldiger_placed.dcp"/>
+  <File Type="PLACE-IO" Name="fourBit2sComplementVermenigvuldiger_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="fourBit2sComplementVermenigvuldiger_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="fourBit2sComplementVermenigvuldiger_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="fourBit2sComplementVermenigvuldiger_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="fourBit2sComplementVermenigvuldiger_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="fourBit2sComplementVermenigvuldiger_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="fourBit2sComplementVermenigvuldiger_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="fourBit2sComplementVermenigvuldiger.bgn"/>
+  <File Type="PLACE-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="fourBit2sComplementVermenigvuldiger_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="fourBit2sComplementVermenigvuldiger.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="fourBit2sComplementVermenigvuldiger_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="fourBit2sComplementVermenigvuldiger_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="fourBit2sComplementVermenigvuldiger.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="fourBit2sComplementVermenigvuldiger_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="fourBit2sComplementVermenigvuldiger_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="fourBit2sComplementVermenigvuldiger_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="fourBit2sComplementVermenigvuldiger_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="fourBit2sComplementVermenigvuldiger_drc_routed.pb"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="fourBit2sComplementVermenigvuldiger.ltx"/>
+  <File Type="ROUTE-DRC-RPX" Name="fourBit2sComplementVermenigvuldiger_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="fourBit2sComplementVermenigvuldiger.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="fourBit2sComplementVermenigvuldiger_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="fourBit2sComplementVermenigvuldiger_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="fourBit2sComplementVermenigvuldiger.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="fourBit2sComplementVermenigvuldiger_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="fourBit2sComplementVermenigvuldiger_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="fourBit2sComplementVermenigvuldiger_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="fourBit2sComplementVermenigvuldiger_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="fourBit2sComplementVermenigvuldiger_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="fourBit2sComplementVermenigvuldiger_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="fourBit2sComplementVermenigvuldiger_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="fourBit2sComplementVermenigvuldiger_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="fourBit2sComplementVermenigvuldiger_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="fourBit2sComplementVermenigvuldiger_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="fourBit2sComplementVermenigvuldiger_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="fourBit2sComplementVermenigvuldiger_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="fourBit2sComplementVermenigvuldiger_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="fourBit2sComplementVermenigvuldiger_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="fourBit2sComplementVermenigvuldiger_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="fourBit2sComplementVermenigvuldiger_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="fourBit2sComplementVermenigvuldiger_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="fourBit2sComplementVermenigvuldiger_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="fourBit2sComplementVermenigvuldiger_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="fourBit2sComplementVermenigvuldiger.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="fourBit2sComplementVermenigvuldiger_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="fourBit2sComplementVermenigvuldiger.rbt"/>
+  <File Type="BITSTR-NKY" Name="fourBit2sComplementVermenigvuldiger.nky"/>
+  <File Type="BG-DRC" Name="fourBit2sComplementVermenigvuldiger.drc"/>
+  <File Type="RDI-RDI" Name="fourBit2sComplementVermenigvuldiger.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/fourBit2sComplementVermenigvuldiger.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="fourBit2sComplementVermenigvuldiger"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/vermenigvuldigerConstraint.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
