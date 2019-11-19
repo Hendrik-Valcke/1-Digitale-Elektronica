@@ -19,6 +19,7 @@ Er worden 3 soorten sources gebruikt:
 ## Handige tips en links
 * [Wiki (work in progress)](https://watcherwhale.github.io/EI-Wiki/)  
 * [Mathias' repository](https://github.com/WatcherWhale/DigitalElectronics)
+* [Converteren van types](https://www.nandland.com/vhdl/tips/tip-convert-numeric-std-logic-vector-to-integer.html#Numeric-Integer-To-Std_Logic_Vector)
 * [zelfmoordlijn](https://www.zelfmoord1813.be/)  
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMjE5NzEwMTAsNjcxMDQ0MjU2XX0=
