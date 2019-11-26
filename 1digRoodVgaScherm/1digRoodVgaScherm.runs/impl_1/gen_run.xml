@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1574781618">
+  <File Type="BITSTR-BMM" Name="RoodVgaScherm_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="RoodVgaScherm_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="RoodVgaScherm_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="RoodVgaScherm_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="RoodVgaScherm.tcl"/>
+  <File Type="OPT-TIMING" Name="RoodVgaScherm_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="RoodVgaScherm_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="RoodVgaScherm_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="RoodVgaScherm_reports.tcl"/>
+  <File Type="OPT-DRC" Name="RoodVgaScherm_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="RoodVgaScherm.hwdef"/>
+  <File Type="PWROPT-DCP" Name="RoodVgaScherm_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="RoodVgaScherm_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="RoodVgaScherm_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="RoodVgaScherm_placed.dcp"/>
+  <File Type="PLACE-IO" Name="RoodVgaScherm_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="RoodVgaScherm_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="RoodVgaScherm_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="RoodVgaScherm_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="RoodVgaScherm_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="RoodVgaScherm_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="RoodVgaScherm_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="RoodVgaScherm.bgn"/>
+  <File Type="PLACE-TIMING" Name="RoodVgaScherm_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="RoodVgaScherm_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="RoodVgaScherm.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="RoodVgaScherm_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="RoodVgaScherm_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="RoodVgaScherm_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="RoodVgaScherm.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="RoodVgaScherm_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="RoodVgaScherm_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="RoodVgaScherm_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="RoodVgaScherm_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="RoodVgaScherm_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="RoodVgaScherm_drc_routed.pb"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="RoodVgaScherm.ltx"/>
+  <File Type="ROUTE-DRC-RPX" Name="RoodVgaScherm_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="RoodVgaScherm.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="RoodVgaScherm_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="RoodVgaScherm_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="RoodVgaScherm.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="RoodVgaScherm_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="RoodVgaScherm_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="RoodVgaScherm_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="RoodVgaScherm_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="RoodVgaScherm_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="RoodVgaScherm_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="RoodVgaScherm_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="RoodVgaScherm_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="RoodVgaScherm_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="RoodVgaScherm_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="RoodVgaScherm_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="RoodVgaScherm_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="RoodVgaScherm_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="RoodVgaScherm_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="RoodVgaScherm_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="RoodVgaScherm_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="RoodVgaScherm_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="RoodVgaScherm_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="RoodVgaScherm_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="RoodVgaScherm.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="RoodVgaScherm_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="RoodVgaScherm.rbt"/>
+  <File Type="BITSTR-NKY" Name="RoodVgaScherm.nky"/>
+  <File Type="BG-DRC" Name="RoodVgaScherm.drc"/>
+  <File Type="RDI-RDI" Name="RoodVgaScherm.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/schermHorizontaal.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/schermVerticaal.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/RoodVgaScherm.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="RoodVgaScherm"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/RoodVgaSchermConstraint.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
