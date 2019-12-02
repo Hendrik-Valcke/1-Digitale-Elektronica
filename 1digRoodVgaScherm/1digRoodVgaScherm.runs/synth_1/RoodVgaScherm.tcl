@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_msg_config  -ruleid {1}  -id {Labtoolstcl 44-513}  -suppress 
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -27,7 +28,7 @@ set_property webtalk.parent_dir D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRood
 set_property parent.project_path D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
+set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
 set_property ip_output_repo d:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {

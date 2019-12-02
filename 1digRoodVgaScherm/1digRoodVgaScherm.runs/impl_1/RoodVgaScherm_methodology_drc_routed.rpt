@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Nov 26 16:21:54 2019
+| Date         : Mon Dec  2 11:05:32 2019
 | Host         : LAPTOP-7KFHSKA6 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file RoodVgaScherm_methodology_drc_routed.rpt -pb RoodVgaScherm_methodology_drc_routed.pb -rpx RoodVgaScherm_methodology_drc_routed.rpx
 | Design       : RoodVgaScherm
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 10
+             Violations found: 20
 +-----------+----------+-----------------------------+------------+
 | Rule      | Severity | Description                 | Violations |
 +-----------+----------+-----------------------------+------------+
-| TIMING-17 | Warning  | Non-clocked sequential cell | 10         |
+| TIMING-17 | Warning  | Non-clocked sequential cell | 20         |
 +-----------+----------+-----------------------------+------------+
 
 2. REPORT DETAILS
@@ -80,6 +80,56 @@ Related violations: <none>
 TIMING-17#10 Warning
 Non-clocked sequential cell  
 The clock pin verticaal/horizontaal/teller_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Warning
+Non-clocked sequential cell  
+The clock pin verticaal/vTeller_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
 

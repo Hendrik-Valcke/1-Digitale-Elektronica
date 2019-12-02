@@ -10,8 +10,8 @@ entity schermHorizontaal is
         --in
         CLK25MHz: in std_logic;
         --out
-        hSync : out std_logic;
-        hPixelTeller : out integer range 0 to 640;
+        hSync : out std_logic;        
+        hTeller: out integer range 0 to 800;
         hDisplayAan: out std_logic 
         );
 end schermHorizontaal;
@@ -31,7 +31,7 @@ begin
     telKlok: process(CLK25MHZ)
     begin
         if rising_edge(CLK25MHz) then
-            if teller < hTotaalTijd then
+            if teller < hTotaalTijd-1 then
                 teller <= teller +1;
             else
                 teller <= 0;                
@@ -42,29 +42,23 @@ begin
     schermLijnGenerator: process(teller)
     begin
         --standaardwaarden (regels v combinatorisch process
---        hDisplayAan <= '0';
---        hSync <= '0';
---        hPixelTeller <= 0;
+        hDisplayAan <= '0';
+        hSync <= '1';       
+        hTeller <= teller;       
         
-        --hPixelTeller (poort) de waarde van teller meegeven
-        hPixelTeller <= teller;
-        
-        if teller <= hVisTijd then
+        if teller <= hVisTijd-1 then
             hDisplayAan <= '1';
             hSync <= '1';
-            --hPixelTeller <= teller;
-        elsif teller > hVisTijd and teller <= (hVisTijd + hFrontPorchTijd) then
+        elsif teller > hVisTijd-1 and teller <= (hVisTijd + hFrontPorchTijd-1) then
             hDisplayAan <= '0';
             hSync <= '1';
-        elsif teller >(hVisTijd + hFrontPorchTijd) and teller <= (hVisTijd + hFrontPorchTijd + hSyncTijd) then
+        elsif teller >(hVisTijd + hFrontPorchTijd-1) and teller <= (hVisTijd + hFrontPorchTijd + hSyncTijd-1) then
             hDisplayAan <= '0';
             hSync <= '0';
-        elsif teller >(hVisTijd + hFrontPorchTijd + hSyncTijd) and teller <= (hVisTijd + hFrontPorchTijd + hSyncTijd + hBackPorchTijd) then
+        elsif teller >(hVisTijd + hFrontPorchTijd + hSyncTijd-1) and teller <= (hVisTijd + hFrontPorchTijd + hSyncTijd + hBackPorchTijd-1) then
             hDisplayAan <= '0';
             hSync <= '1';
         end if;
-    end process;
+    end process;  
     
-    
-
 end Behavioral;

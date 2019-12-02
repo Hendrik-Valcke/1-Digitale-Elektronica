@@ -60,14 +60,102 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config  -ruleid {1}  -id {Labtoolstcl 44-513}  -suppress 
+
+start_step init_design
+set ACTIVE_STEP init_design
+set rc [catch {
+  create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
+  create_project -in_memory -part xc7a100tcsg324-1
+  set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.cache/wt [current_project]
+  set_property parent.project_path D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.xpr [current_project]
+  set_property ip_output_repo D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.cache/ip [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  add_files -quiet D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.runs/synth_1/RoodVgaScherm.dcp
+  read_xdc D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.srcs/constrs_1/new/RoodVgaSchermConstraint.xdc
+  link_design -top RoodVgaScherm -part xc7a100tcsg324-1
+  close_msg_db -file init_design.pb
+} RESULT]
+if {$rc} {
+  step_failed init_design
+  return -code error $RESULT
+} else {
+  end_step init_design
+  unset ACTIVE_STEP 
+}
+
+start_step opt_design
+set ACTIVE_STEP opt_design
+set rc [catch {
+  create_msg_db opt_design.pb
+  opt_design 
+  write_checkpoint -force RoodVgaScherm_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file RoodVgaScherm_drc_opted.rpt -pb RoodVgaScherm_drc_opted.pb -rpx RoodVgaScherm_drc_opted.rpx"
+  close_msg_db -file opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed opt_design
+  return -code error $RESULT
+} else {
+  end_step opt_design
+  unset ACTIVE_STEP 
+}
+
+start_step place_design
+set ACTIVE_STEP place_design
+set rc [catch {
+  create_msg_db place_design.pb
+  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
+    implement_debug_core 
+  } 
+  place_design 
+  write_checkpoint -force RoodVgaScherm_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file RoodVgaScherm_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file RoodVgaScherm_utilization_placed.rpt -pb RoodVgaScherm_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file RoodVgaScherm_control_sets_placed.rpt"
+  close_msg_db -file place_design.pb
+} RESULT]
+if {$rc} {
+  step_failed place_design
+  return -code error $RESULT
+} else {
+  end_step place_design
+  unset ACTIVE_STEP 
+}
+
+start_step route_design
+set ACTIVE_STEP route_design
+set rc [catch {
+  create_msg_db route_design.pb
+  route_design 
+  write_checkpoint -force RoodVgaScherm_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file RoodVgaScherm_drc_routed.rpt -pb RoodVgaScherm_drc_routed.pb -rpx RoodVgaScherm_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file RoodVgaScherm_methodology_drc_routed.rpt -pb RoodVgaScherm_methodology_drc_routed.pb -rpx RoodVgaScherm_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file RoodVgaScherm_power_routed.rpt -pb RoodVgaScherm_power_summary_routed.pb -rpx RoodVgaScherm_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file RoodVgaScherm_route_status.rpt -pb RoodVgaScherm_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file RoodVgaScherm_timing_summary_routed.rpt -pb RoodVgaScherm_timing_summary_routed.pb -rpx RoodVgaScherm_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file RoodVgaScherm_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file RoodVgaScherm_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file RoodVgaScherm_bus_skew_routed.rpt -pb RoodVgaScherm_bus_skew_routed.pb -rpx RoodVgaScherm_bus_skew_routed.rpx"
+  close_msg_db -file route_design.pb
+} RESULT]
+if {$rc} {
+  write_checkpoint -force RoodVgaScherm_routed_error.dcp
+  step_failed route_design
+  return -code error $RESULT
+} else {
+  end_step route_design
+  unset ACTIVE_STEP 
+}
 
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param xicom.use_bs_reader 1
-  open_checkpoint RoodVgaScherm_routed.dcp
-  set_property webtalk.parent_dir D:/Data/VHDLProjecten/1digRoodVgaScherm/1digRoodVgaScherm.cache/wt [current_project]
   catch { write_mem_info -force RoodVgaScherm.mmi }
   write_bitstream -force RoodVgaScherm.bit 
   catch {write_debug_probes -quiet -force RoodVgaScherm}
