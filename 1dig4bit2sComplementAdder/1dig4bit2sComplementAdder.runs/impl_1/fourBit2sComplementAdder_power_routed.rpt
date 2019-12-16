@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Mon Nov  4 11:09:47 2019
+| Date             : Sat Dec  7 15:39:06 2019
 | Host             : LAPTOP-7KFHSKA6 running 64-bit major release  (build 9200)
 | Command          : report_power -file fourBit2sComplementAdder_power_routed.rpt -pb fourBit2sComplementAdder_power_summary_routed.pb -rpx fourBit2sComplementAdder_power_routed.rpx
 | Design           : fourBit2sComplementAdder
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 9.158        |
+| Total On-Chip Power (W)  | 7.993        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 8.983        |
-| Device Static (W)        | 0.174        |
+| Dynamic (W)              | 7.837        |
+| Device Static (W)        | 0.156        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 43.2         |
-| Junction Temperature (C) | 66.8         |
+| Max Ambient (C)          | 48.5         |
+| Junction Temperature (C) | 61.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,12 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.052 |       11 |       --- |             --- |
-|   LUT as Logic |     0.052 |        7 |     63400 |            0.01 |
-| Signals        |     0.136 |       21 |       --- |             --- |
-| I/O            |     8.796 |       15 |       210 |            7.14 |
-| Static Power   |     0.174 |          |           |                 |
-| Total          |     9.158 |          |           |                 |
+| Slice Logic    |     0.186 |       78 |       --- |             --- |
+|   LUT as Logic |     0.182 |       37 |     63400 |            0.06 |
+|   CARRY4       |     0.004 |        8 |     15850 |            0.05 |
+|   Others       |     0.000 |        1 |       --- |             --- |
+| Signals        |     0.186 |       24 |       --- |             --- |
+| I/O            |     7.465 |       15 |       210 |            7.14 |
+| Static Power   |     0.156 |          |           |                 |
+| Total          |     7.993 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -67,16 +69,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.305 |       0.228 |      0.077 |
-| Vccaux    |       1.800 |     0.347 |       0.321 |      0.026 |
-| Vcco33    |       3.300 |     2.482 |       2.478 |      0.004 |
+| Vccint    |       1.000 |     0.475 |       0.412 |      0.063 |
+| Vccaux    |       1.800 |     0.296 |       0.272 |      0.024 |
+| Vcco33    |       3.300 |     2.106 |       2.102 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.002 |       0.000 |      0.002 |
+| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -134,7 +136,7 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| fourBit2sComplementAdder |     8.983 |
+| fourBit2sComplementAdder |     7.837 |
 +--------------------------+-----------+
 
 

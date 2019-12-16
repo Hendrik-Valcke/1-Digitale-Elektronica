@@ -1,0 +1,399 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Dec 11 21:30:38 2019
+# Process ID: 26424
+# Current directory: D:/Data/VHDLProjecten/1digPong/1digPong.runs/synth_1
+# Command line: vivado.exe -log pongScherm.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pongScherm.tcl
+# Log file: D:/Data/VHDLProjecten/1digPong/1digPong.runs/synth_1/pongScherm.vds
+# Journal file: D:/Data/VHDLProjecten/1digPong/1digPong.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source pongScherm.tcl -notrace
+Command: synth_design -top pongScherm -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 16520 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 372.813 ; gain = 98.469
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'pongScherm' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongScherm.vhd:33]
+INFO: [Synth 8-3491] module 'schermVerticaal' declared at 'D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermVerticaal.vhd:4' bound to instance 'verticaal' of component 'schermVerticaal' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongScherm.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'schermVerticaal' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermVerticaal.vhd:17]
+INFO: [Synth 8-3491] module 'schermHorizontaal' declared at 'D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermHorizontaal.vhd:5' bound to instance 'horizontaal' of component 'schermHorizontaal' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermVerticaal.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'schermHorizontaal' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermHorizontaal.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'schermHorizontaal' (1#1) [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermHorizontaal.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'schermVerticaal' (2#1) [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermVerticaal.vhd:17]
+INFO: [Synth 8-3491] module 'pongSpeler' declared at 'D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongSpeler.vhd:5' bound to instance 'spelers' of component 'pongSpeler' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongScherm.vhd:121]
+INFO: [Synth 8-638] synthesizing module 'pongSpeler' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongSpeler.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'pongSpeler' (3#1) [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongSpeler.vhd:27]
+INFO: [Synth 8-3491] module 'displayScore' declared at 'D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/displayScore.vhd:6' bound to instance 'score' of component 'displayScore' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongScherm.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'displayScore' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/displayScore.vhd:24]
+INFO: [Synth 8-3491] module 'BcdTo7Seg1Digitale' declared at 'D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/BcdTo7Seg1Digitale.vhd:5' bound to instance 'Converter' of component 'BcdTo7Seg1Digitale' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/displayScore.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'BcdTo7Seg1Digitale' [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/BcdTo7Seg1Digitale.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'BcdTo7Seg1Digitale' (4#1) [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/BcdTo7Seg1Digitale.vhd:12]
+INFO: [Synth 8-256] done synthesizing module 'displayScore' (5#1) [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/displayScore.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'pongScherm' (6#1) [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongScherm.vhd:33]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 428.324 ; gain = 153.980
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 428.324 ; gain = 153.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 428.324 ; gain = 153.980
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/constrs_1/new/pongConstraint.xdc]
+Finished Parsing XDC File [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/constrs_1/new/pongConstraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/constrs_1/new/pongConstraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/pongScherm_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/pongScherm_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 783.016 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "vTeller" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongSpeler.vhd:72]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongSpeler.vhd:78]
+INFO: [Synth 8-5544] ROM "telLimiet" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "AN" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "binGetal" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "AN" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "binGetal" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 3     
+	   3 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 8     
+	   2 Input      9 Bit       Adders := 5     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 8     
++---Registers : 
+	               10 Bit    Registers := 3     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     21 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 5     
+	   2 Input      9 Bit        Muxes := 11    
+	   2 Input      8 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 1     
+	  11 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 2     
+	   5 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 10    
+	   5 Input      4 Bit        Muxes := 2     
+	  10 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 30    
+	   5 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module pongScherm 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 3     
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 8     
+	   7 Input      4 Bit        Muxes := 1     
+Module schermHorizontaal 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module schermVerticaal 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module pongSpeler 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 3     
+	   2 Input      9 Bit       Adders := 4     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 3     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     21 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 5     
+	   2 Input      9 Bit        Muxes := 11    
+	   2 Input      1 Bit        Muxes := 23    
+	   5 Input      1 Bit        Muxes := 1     
+Module BcdTo7Seg1Digitale 
+Detailed RTL Component Info : 
++---Muxes : 
+	  11 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+Module displayScore 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 8     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   5 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   5 Input      4 Bit        Muxes := 2     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "verticaal/vTeller" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-3886] merging instance 'score/AN_reg[2]' (FD) to 'score/AN_reg[5]'
+INFO: [Synth 8-3886] merging instance 'score/AN_reg[3]' (FD) to 'score/AN_reg[5]'
+INFO: [Synth 8-3886] merging instance 'score/AN_reg[4]' (FD) to 'score/AN_reg[5]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\score/AN_reg[5] )
+WARNING: [Synth 8-3332] Sequential element (score/AN_reg[5]) is unused and will be removed from module pongScherm.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 783.016 ; gain = 508.672
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (score/displayTeller_reg[3]) is unused and will be removed from module pongScherm.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     3|
+|2     |CARRY4 |    49|
+|3     |LUT1   |    12|
+|4     |LUT2   |    57|
+|5     |LUT3   |    45|
+|6     |LUT4   |    86|
+|7     |LUT5   |    80|
+|8     |LUT6   |    74|
+|9     |MUXF7  |     3|
+|10    |FDRE   |   142|
+|11    |FDSE   |    10|
+|12    |IBUF   |     6|
+|13    |OBUF   |    29|
++------+-------+------+
+
+Report Instance Areas: 
++------+----------------+------------------+------+
+|      |Instance        |Module            |Cells |
++------+----------------+------------------+------+
+|1     |top             |                  |   596|
+|2     |  score         |displayScore      |   102|
+|3     |  spelers       |pongSpeler        |   301|
+|4     |  verticaal     |schermVerticaal   |   119|
+|5     |    horizontaal |schermHorizontaal |    58|
++------+----------------+------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 796.383 ; gain = 167.348
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.383 ; gain = 522.039
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 58 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+43 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 796.383 ; gain = 533.922
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/Data/VHDLProjecten/1digPong/1digPong.runs/synth_1/pongScherm.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file pongScherm_utilization_synth.rpt -pb pongScherm_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.076 . Memory (MB): peak = 796.383 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 11 21:31:12 2019...

@@ -37,7 +37,7 @@ begin
     klokConverter: process(CLK100MHZ)
     begin
         if rising_edge(CLK100MHZ) then
-            if klokTeller >= 2500000 then
+            if klokTeller >= 2499999 then
                 klokTeller <= 0;
                 CLK20HZ <= not(CLK20HZ);
             else 
@@ -50,24 +50,30 @@ begin
     begin
         
         if rising_edge(CLK20HZ) then
-            if ledTeller < 15 and terugkeren = '0' then --heengaan
-                ledTeller <= ledTeller +1;
-            elsif ledTeller >= 15  and terugkeren = '0' then --heeft einde bereikt
-                ledTeller <= ledTeller -1;
-                terugkeren <= '1'; 
-            elsif ledTeller > 0 and terugkeren = '1' then --terug gaan
-                ledTeller <= ledTeller -1;
-            elsif ledTeller <= 0 and terugkeren = '1' then -- heeft begin bereikt
-                ledTeller <= ledTeller +1;
-                terugkeren <= '0';                
-            end if;
-            
             if reset = '1' then
                 ledTeller <= 0;
                 terugkeren <= '0';
+                LED <= "1000000000000000";
+            else
+                if ledTeller < 15 and terugkeren = '0' then --heengaan
+                    ledTeller <= ledTeller +1;
+                    --we geven de LED als std_logic_vector een binair getal = 2^(15-ledTeller) bv 0000000000000001 = 2^0 dus ledTeller = 15 (de meest rechtse led)
+                    LED <= std_logic_vector(to_unsigned(machtVan2(15-ledTeller),16));
+                elsif ledTeller >= 15  and terugkeren = '0' then --heeft einde bereikt
+                    ledTeller <= ledTeller -1;
+                    terugkeren <= '1'; 
+                    LED <= std_logic_vector(to_unsigned(machtVan2(15-ledTeller),16));
+                elsif ledTeller > 0 and terugkeren = '1' then --terug gaan
+                    ledTeller <= ledTeller -1;
+                    LED <= std_logic_vector(to_unsigned(machtVan2(15-ledTeller),16));
+                elsif ledTeller <= 0 and terugkeren = '1' then -- heeft begin bereikt
+                    ledTeller <= ledTeller +1;
+                    terugkeren <= '0';     
+                    LED <= std_logic_vector(to_unsigned(machtVan2(15-ledTeller),16));           
+                end if;            
             end if;
-            --we geven de LED als std_logic_vector een binair getal = 2^(15-ledTeller) bv 0000000000000001 = 2^0 dus ledTeller = 15 (de meest rechtse led)
-            LED <= std_logic_vector(to_unsigned(machtVan2(15-ledTeller),16));
+                     
+                        
         end if;     
     end process;
 

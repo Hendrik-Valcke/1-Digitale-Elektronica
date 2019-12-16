@@ -1,0 +1,1 @@
+-wto "445e057fdce447a29dde563eac00f900" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "roodSchermTestBench_behav" "xil_defaultlib.roodSchermTestBench" -log "elaborate.log" 

@@ -19,6 +19,7 @@ proc create_report { reportName command } {
 }
 set_param xicom.use_bs_reader 1
 set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config  -ruleid {3}  -id {DRC CFGBVS-1}  -suppress 
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0

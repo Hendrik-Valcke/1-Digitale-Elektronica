@@ -107,7 +107,11 @@ begin
         else                  
             DP <= '1'; --regels van combinatorisch proces: altijd waarde toekennen!
             binair <= "1111111";
-            input <= bcdTiental;                 
+            input <= bcdTiental;
+            AN(0)<='1';
+            AN(1)<='1';
+            AN(6)<='1';
+            AN(7)<='1';                 
         end if;    
             
         -- de ongebruikte displays uitzetten:

@@ -4,7 +4,6 @@
 --Laat het product van deze getallen zien op LED15-8
 --Gebruik als ingangen enkel integers.
 
---DISCLAIMER: deze opgave moet nog nagekeken worden, vertrouw er niet op dat ze klopt!
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
@@ -21,23 +20,38 @@ entity fourBit2sComplementVermenigvuldiger is
 end fourBit2sComplementVermenigvuldiger;
 
 architecture Behavioral of fourBit2sComplementVermenigvuldiger is
+--signalen
+signal lGetal: integer range -8 to 16;
+signal rGetal: integer range -8 to 16;
+
 begin
 
-    vermenigvuldiging: process(intL,intR,twosCompMode)    
+    vermenigvuldiging: process(lGetal,rGetal,intL,intR,twosCompMode)    
     begin
         if twosCompMode = 0 then
             LED <= intL*intR;
-        else --twosCompMode = '1'
-            if intL >= 8 and intR >= 8 then -- groter dan 8 (1000) dus de tekenbit is 1=> negatief bij intL en intR
-                LED <= (intL -16)*(intR-16);
-            elsif intL >= 8 and intR < 8 then --intL is negatief en intR postief
-                LED <= (intL -16)*intR;
-            elsif intL < 8 and intR >= 8 then --intL is positief en intR negatief
-                LED <= intL*(intR-16);
-            else --waarde voor de zekerheid
-                LED <= 0;
-            end if;            
-            
+            lGetal<= 0;
+            rGetal <= 0;
+        elsif (twosCompMode = 1) then --twosCompMode = '1'
+            if intL>= 8 then
+                lGetal <= intL-16;
+            else 
+                lGetal <= intL;
+            end if;
+            if intR>= 8 then
+                rGetal <= intR-16;
+            else 
+                rGetal <= intR;
+            end if;
+            if lGetal*rGetal <0 then
+                LED<=to_integer(not(to_unsigned((abs(lGetal*rGetal)-1),8)));
+            else
+                LED <= lGetal*rGetal;
+            end if;           
+        else
+            LED<=0; 
+            lGetal<= 0;
+            rGetal <= 0;
         end if;
      end process;
 

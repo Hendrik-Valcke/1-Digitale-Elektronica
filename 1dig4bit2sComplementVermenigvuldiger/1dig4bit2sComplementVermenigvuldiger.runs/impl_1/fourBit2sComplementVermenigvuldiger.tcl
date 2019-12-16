@@ -61,6 +61,7 @@ proc step_failed { step } {
 }
 
 set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config  -ruleid {3}  -id {DRC CFGBVS-1}  -suppress 
 
 start_step init_design
 set ACTIVE_STEP init_design
