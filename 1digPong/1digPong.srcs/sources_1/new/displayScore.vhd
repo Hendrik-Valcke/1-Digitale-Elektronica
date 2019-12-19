@@ -7,8 +7,9 @@ entity displayScore is
    Port (
    --in
    CLK25MHz: in std_logic;
-   lWint: in std_logic;
-   rWint: in std_logic;
+   scoreLinks: in integer range 0 to 100 := 0;
+   scoreRechts: in integer range 0 to 100 := 0;
+   slomo: in std_logic := '0';
    --out
    AN: out std_logic_vector(7 downto 0);--anodes        
    CA: out std_logic;--cathodes: actief ???
@@ -22,12 +23,12 @@ entity displayScore is
 end displayScore;
 
 architecture Behavioral of displayScore is
-signal klokTeller: integer range 0 to 15625-1 := 0;
+signal klokTeller: integer range 0 to 15625000-1 := 0;
 signal CLK800Hz : std_logic := '0';
 signal displayTeller : integer range 0 to 8 := 0;
+signal telLimiet: integer range 0 to 15625000;
 
-signal scoreLinks: integer range 0 to 99 := 0;
-signal scoreRechts: integer range 0 to 99 := 0;
+signal tiental : std_logic := '0';
 signal binGetal: unsigned(6 downto 0);
 signal bcdTiental: unsigned(3 downto 0);
 signal bcdEental: unsigned(3 downto 0);  
@@ -42,17 +43,27 @@ signal output : std_logic_vector(6 downto 0); --uitgangssignaal voor component
     end component;
 
 begin
-
     --port map met component
-    Converter : BcdTo7Seg1Digitale port map( --poort van component => signaal
-                                            bcd => input,
-                                            sevenSeg => output
-                                            );
-
+    Converter : BcdTo7Seg1Digitale 
+    port map( --poort van component => signaal
+            bcd => input,
+            sevenSeg => output
+            );
+    
+    slowmotion: process(slomo)           
+        begin                                
+            if slomo = '1' then              
+                telLimiet <= 15625000-1; --8Hz 
+            else                             
+                telLimiet <= 15625-1;--800Hz  
+            end if;                          
+        end process;                         
+                                                                                 
+    
     klokconverter: process(CLK25MHz)
     begin
         if rising_edge(CLK25MHz) then
-            if klokteller >= 15625-1 then --800Hz
+            if klokteller >= telLimiet then --800Hz
                 klokteller <= 0;
                 CLK800Hz <= not(CLK800Hz);
             else
@@ -63,37 +74,33 @@ begin
 
     displays: process(CLK800Hz)
     begin
-        if rising_edge(CLK800Hz)then    
-            
-                    
+        if rising_edge(CLK800Hz)then  
                 case displayTeller is            
                     when 0 => AN <= (0=> '0', others =>'1');  --meest rechtse display
                             binGetal<=to_unsigned(scoreRechts,7);
-                            input<= bcdEental;
+                            --binGetal<=to_unsigned(scoreLinks,7);
+                            tiental<= '0';
+                            --input<= bcdEental;
                             displayTeller <= displayTeller + 1; 
                     when 1 => AN <= (1=> '0', others =>'1');
                             binGetal<=to_unsigned(scoreRechts,7);
-                            input<= bcdTiental;
+                            tiental<= '1';
+                            --input<= bcdTiental;
                             displayTeller <= displayTeller + 1; 
                     when 6 =>AN <= (6=> '0', others =>'1');
                             binGetal<=to_unsigned(scoreLinks,7);
-                            input<= bcdEental;
+                            --binGetal<=to_unsigned(scoreRechts,7);
+                            tiental<= '0';
+                            --input<= bcdEental;
                             displayTeller <= displayTeller + 1; 
                     when 7 =>AN <= (7=> '0', others =>'1'); -- meest linkse display
                             binGetal<=to_unsigned(scoreLinks,7);
-                            input<= bcdTiental;
+                            tiental<= '1';
+                            --input<= bcdTiental;
                             displayTeller <= 0;
                     when others => AN<="11111111"; 
                                 displayTeller <= displayTeller + 1; 
                 end case;
-                if lWint= '1' then
-                    scoreLinks <= scoreLinks +1;
-                elsif rWint = '1' then
-                    scoreRechts <= scoreRechts +1;
-                end if;                
---            else
---                displayTeller <= displayTeller +1;        
---            end if;
         end if;
     end process;
     
@@ -133,6 +140,16 @@ begin
                 bcdTiental <= "1111";--regels van combinatorisch proces: altijd waarde toekennen!
                 bcdEental <= "1111";
            end if;        
+    end process;
+    
+    pInput : process(tiental, bcdEental, bcdTiental)
+    begin
+        if(tiental = '0')
+        then
+            input <= bcdEental;
+        else
+            input <= bcdTiental;          
+        end if;
     end process;
     
     Invert : process(output) --de output van de converter (opgave1) naar de kathodes sturen

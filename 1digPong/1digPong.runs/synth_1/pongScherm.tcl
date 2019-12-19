@@ -33,7 +33,9 @@ set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
 set_property ip_output_repo d:/Data/VHDLProjecten/1digPong/1digPong.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
+  D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/AI.vhd
   D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/BcdTo7Seg1Digitale.vhd
+  D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/Sound.vhd
   D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/displayScore.vhd
   D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/new/pongSpeler.vhd
   D:/Data/VHDLProjecten/1digPong/1digPong.srcs/sources_1/imports/new/schermHorizontaal.vhd

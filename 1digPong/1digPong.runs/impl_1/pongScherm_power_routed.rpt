@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Wed Dec 11 21:32:34 2019
+| Date             : Wed Dec 18 17:59:41 2019
 | Host             : LAPTOP-7KFHSKA6 running 64-bit major release  (build 9200)
 | Command          : report_power -file pongScherm_power_routed.rpt -pb pongScherm_power_summary_routed.pb -rpx pongScherm_power_routed.rpx
 | Design           : pongScherm
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.110        |
+| Total On-Chip Power (W)  | 0.123        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.013        |
+| Dynamic (W)              | 0.025        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 84.5         |
-| Junction Temperature (C) | 25.5         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      570 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      252 |     63400 |            0.40 |
-|   CARRY4       |    <0.001 |       49 |     15850 |            0.31 |
-|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Register     |    <0.001 |      152 |    126800 |            0.12 |
-|   F7/F8 Muxes  |    <0.001 |        3 |     63400 |           <0.01 |
-|   Others       |     0.000 |       10 |       --- |             --- |
-| Signals        |    <0.001 |      332 |       --- |             --- |
-| I/O            |     0.010 |       35 |       210 |           16.67 |
+| Slice Logic    |     0.002 |     1308 |       --- |             --- |
+|   LUT as Logic |     0.001 |      627 |     63400 |            0.99 |
+|   CARRY4       |    <0.001 |      158 |     15850 |            1.00 |
+|   Register     |    <0.001 |      304 |    126800 |            0.24 |
+|   BUFG         |    <0.001 |        1 |        32 |            3.13 |
+|   F7/F8 Muxes  |    <0.001 |        1 |     63400 |           <0.01 |
+|   Others       |     0.000 |       14 |       --- |             --- |
+| Signals        |     0.002 |      797 |       --- |             --- |
+| I/O            |     0.022 |       43 |       210 |           20.48 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.110 |          |           |                 |
+| Total          |     0.123 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.018 |       0.003 |      0.015 |
-| Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
+| Vccint    |       1.000 |     0.019 |       0.004 |      0.015 |
+| Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
+| Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -142,7 +142,9 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| pongScherm      |     0.013 |
+| pongScherm      |     0.025 |
+|   AIproces      |    <0.001 |
+|   geluid        |    <0.001 |
 |   score         |    <0.001 |
 |   spelers       |     0.001 |
 |   verticaal     |    <0.001 |

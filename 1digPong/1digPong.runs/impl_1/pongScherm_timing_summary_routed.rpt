@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Wed Dec 11 21:32:34 2019
+| Date         : Wed Dec 18 17:59:41 2019
 | Host         : LAPTOP-7KFHSKA6 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file pongScherm_timing_summary_routed.rpt -pb pongScherm_timing_summary_routed.pb -rpx pongScherm_timing_summary_routed.rpx -warn_on_violation
 | Design       : pongScherm
@@ -52,9 +52,9 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 97 register/latch pins with no clock driven by root clock pin: CLK25MHZ_reg/Q (HIGH)
+ There are 266 register/latch pins with no clock driven by root clock pin: CLK25MHZ_reg/Q (HIGH)
 
- There are 32 register/latch pins with no clock driven by root clock pin: score/CLK800Hz_reg/Q (HIGH)
+ There are 15 register/latch pins with no clock driven by root clock pin: score/CLK800Hz_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -69,21 +69,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 270 pins that are not constrained for maximum delay. (HIGH)
+ There are 707 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 5 input ports with no input delay specified. (HIGH)
+ There are 10 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 25 ports with no output delay specified. (HIGH)
+ There are 27 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -128,7 +128,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      6.452        0.000                      0                   45        0.261        0.000                      0                   45        4.500        0.000                       0                    24  
+      6.220        0.000                      0                   45        0.261        0.000                      0                   45        4.500        0.000                       0                    24  
 
 
 All user specified timing constraints are met.
@@ -151,7 +151,7 @@ sys_clk_pin  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin         6.452        0.000                      0                   45        0.261        0.000                      0                   45        4.500        0.000                       0                    24  
+sys_clk_pin         6.220        0.000                      0                   45        0.261        0.000                      0                   45        4.500        0.000                       0                    24  
 
 
 ------------------------------------------------------------------------------------------------
@@ -182,7 +182,7 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  sys_clk_pin
   To Clock:  sys_clk_pin
 
-Setup :            0  Failing Endpoints,  Worst Slack        6.452ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        6.220ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.261ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -190,137 +190,19 @@ PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             6.452ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.220ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[20]/R
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.059ns  (logic 0.704ns (23.013%)  route 2.355ns (76.987%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.928ns = ( 14.928 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
-    Clock Pessimism Removal (CPR):    0.276ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000     0.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.660     8.287    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y99         FDRE                                         r  klokTeller_reg[20]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000    10.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.505    14.928    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y99         FDRE                                         r  klokTeller_reg[20]/C
-                         clock pessimism              0.276    15.204    
-                         clock uncertainty           -0.035    15.168    
-    SLICE_X53Y99         FDRE (Setup_fdre_C_R)       -0.429    14.739    klokTeller_reg[20]
-  -------------------------------------------------------------------
-                         required time                         14.739    
-                         arrival time                          -8.287    
-  -------------------------------------------------------------------
-                         slack                                  6.452    
-
-Slack (MET) :             6.452ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[21]/R
+  Destination:            klokTeller_reg[12]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.059ns  (logic 0.704ns (23.013%)  route 2.355ns (76.987%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.928ns = ( 14.928 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
-    Clock Pessimism Removal (CPR):    0.276ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000     0.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.660     8.287    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y99         FDRE                                         r  klokTeller_reg[21]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                     10.000    10.000 r  
-    E3                                                0.000    10.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000    10.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.505    14.928    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y99         FDRE                                         r  klokTeller_reg[21]/C
-                         clock pessimism              0.276    15.204    
-                         clock uncertainty           -0.035    15.168    
-    SLICE_X53Y99         FDRE (Setup_fdre_C_R)       -0.429    14.739    klokTeller_reg[21]
-  -------------------------------------------------------------------
-                         required time                         14.739    
-                         arrival time                          -8.287    
-  -------------------------------------------------------------------
-                         slack                                  6.452    
-
-Slack (MET) :             6.510ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[10]/R
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.001ns  (logic 0.704ns (23.460%)  route 2.297ns (76.540%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.291ns  (logic 0.704ns (21.394%)  route 2.587ns (78.606%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -337,16 +219,16 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.602     8.229    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[10]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.660     8.525    clear
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[12]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -356,30 +238,30 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[10]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y96         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[10]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[12]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y96         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[12]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.229    
+                         required time                         14.745    
+                         arrival time                          -8.525    
   -------------------------------------------------------------------
-                         slack                                  6.510    
+                         slack                                  6.220    
 
-Slack (MET) :             6.510ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.220ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[11]/R
+  Destination:            klokTeller_reg[13]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.001ns  (logic 0.704ns (23.460%)  route 2.297ns (76.540%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.291ns  (logic 0.704ns (21.394%)  route 2.587ns (78.606%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -396,16 +278,16 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.602     8.229    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[11]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.660     8.525    clear
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[13]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -415,30 +297,30 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[11]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y96         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[11]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[13]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y96         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[13]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.229    
+                         required time                         14.745    
+                         arrival time                          -8.525    
   -------------------------------------------------------------------
-                         slack                                  6.510    
+                         slack                                  6.220    
 
-Slack (MET) :             6.510ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.220ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[8]/R
+  Destination:            klokTeller_reg[14]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.001ns  (logic 0.704ns (23.460%)  route 2.297ns (76.540%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.291ns  (logic 0.704ns (21.394%)  route 2.587ns (78.606%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -455,16 +337,16 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.602     8.229    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[8]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.660     8.525    clear
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[14]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -474,30 +356,30 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[8]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y96         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[8]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[14]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y96         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[14]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.229    
+                         required time                         14.745    
+                         arrival time                          -8.525    
   -------------------------------------------------------------------
-                         slack                                  6.510    
+                         slack                                  6.220    
 
-Slack (MET) :             6.510ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.220ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[9]/R
+  Destination:            klokTeller_reg[15]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        3.001ns  (logic 0.704ns (23.460%)  route 2.297ns (76.540%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.291ns  (logic 0.704ns (21.394%)  route 2.587ns (78.606%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -514,16 +396,16 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.602     8.229    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[9]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.660     8.525    clear
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[15]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -533,30 +415,30 @@ Slack (MET) :             6.510ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[9]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y96         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[9]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[15]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y96         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[15]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.229    
+                         required time                         14.745    
+                         arrival time                          -8.525    
   -------------------------------------------------------------------
-                         slack                                  6.510    
+                         slack                                  6.220    
 
-Slack (MET) :             6.549ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.227ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            klokTeller_reg[0]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.962ns  (logic 0.704ns (23.770%)  route 2.258ns (76.230%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.283ns  (logic 0.704ns (21.441%)  route 2.579ns (78.559%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -573,16 +455,16 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.562     8.189    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[0]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.653     8.518    clear
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[0]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -592,30 +474,30 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[0]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y94         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[0]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[0]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y93         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.189    
+                         required time                         14.745    
+                         arrival time                          -8.518    
   -------------------------------------------------------------------
-                         slack                                  6.549    
+                         slack                                  6.227    
 
-Slack (MET) :             6.549ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.227ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            klokTeller_reg[1]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.962ns  (logic 0.704ns (23.770%)  route 2.258ns (76.230%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.283ns  (logic 0.704ns (21.441%)  route 2.579ns (78.559%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -632,16 +514,16 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.562     8.189    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[1]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.653     8.518    clear
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[1]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -651,30 +533,30 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[1]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y94         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[1]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[1]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y93         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[1]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.189    
+                         required time                         14.745    
+                         arrival time                          -8.518    
   -------------------------------------------------------------------
-                         slack                                  6.549    
+                         slack                                  6.227    
 
-Slack (MET) :             6.549ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.227ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            klokTeller_reg[2]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.962ns  (logic 0.704ns (23.770%)  route 2.258ns (76.230%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.283ns  (logic 0.704ns (21.441%)  route 2.579ns (78.559%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -691,16 +573,16 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.562     8.189    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[2]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.653     8.518    clear
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[2]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -710,30 +592,30 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[2]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y94         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[2]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[2]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y93         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[2]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.189    
+                         required time                         14.745    
+                         arrival time                          -8.518    
   -------------------------------------------------------------------
-                         slack                                  6.549    
+                         slack                                  6.227    
 
-Slack (MET) :             6.549ns  (required time - arrival time)
-  Source:                 klokTeller_reg[5]/C
+Slack (MET) :             6.227ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            klokTeller_reg[3]/R
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        2.962ns  (logic 0.704ns (23.770%)  route 2.258ns (76.230%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Data Path Delay:        3.283ns  (logic 0.704ns (21.441%)  route 2.579ns (78.559%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
   Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.927ns = ( 14.927 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.228ns
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
     Clock Pessimism Removal (CPR):    0.276ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -750,16 +632,16 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.625     5.228    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[5]/C
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.456     5.684 r  klokTeller_reg[5]/Q
-                         net (fo=2, routed)           0.875     6.559    klokTeller_reg[5]
-    SLICE_X52Y94         LUT6 (Prop_lut6_I3_O)        0.124     6.683 r  klokTeller[0]_i_3__0/O
-                         net (fo=2, routed)           0.820     7.503    klokTeller[0]_i_3__0_n_0
-    SLICE_X52Y96         LUT4 (Prop_lut4_I0_O)        0.124     7.627 r  klokTeller[0]_i_1__0/O
-                         net (fo=22, routed)          0.562     8.189    klokTeller[0]_i_1__0_n_0
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[3]/R
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.653     8.518    clear
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[3]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -769,16 +651,134 @@ Slack (MET) :             6.549ns  (required time - arrival time)
     E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          1.504    14.927    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[3]/C
-                         clock pessimism              0.276    15.203    
-                         clock uncertainty           -0.035    15.167    
-    SLICE_X53Y94         FDRE (Setup_fdre_C_R)       -0.429    14.738    klokTeller_reg[3]
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[3]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y93         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[3]
   -------------------------------------------------------------------
-                         required time                         14.738    
-                         arrival time                          -8.189    
+                         required time                         14.745    
+                         arrival time                          -8.518    
   -------------------------------------------------------------------
-                         slack                                  6.549    
+                         slack                                  6.227    
+
+Slack (MET) :             6.319ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            klokTeller_reg[4]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        3.191ns  (logic 0.704ns (22.060%)  route 2.487ns (77.940%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
+    Clock Pessimism Removal (CPR):    0.276ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000     0.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.561     8.426    clear
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[4]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000    10.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[4]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y94         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[4]
+  -------------------------------------------------------------------
+                         required time                         14.745    
+                         arrival time                          -8.426    
+  -------------------------------------------------------------------
+                         slack                                  6.319    
+
+Slack (MET) :             6.319ns  (required time - arrival time)
+  Source:                 klokTeller_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            klokTeller_reg[5]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        3.191ns  (logic 0.704ns (22.060%)  route 2.487ns (77.940%))
+  Logic Levels:           2  (LUT4=1 LUT5=1)
+  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.934ns = ( 14.934 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.235ns
+    Clock Pessimism Removal (CPR):    0.276ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000     0.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           2.025     3.506    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096     3.602 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          1.632     5.235    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.456     5.691 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.862     6.553    klokTeller_reg[10]
+    SLICE_X50Y95         LUT5 (Prop_lut5_I0_O)        0.124     6.677 f  klokTeller[0]_i_4__0/O
+                         net (fo=2, routed)           1.065     7.742    klokTeller[0]_i_4__0_n_0
+    SLICE_X50Y96         LUT4 (Prop_lut4_I1_O)        0.124     7.866 r  klokTeller[0]_i_1__0/O
+                         net (fo=22, routed)          0.561     8.426    clear
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[5]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000    10.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           1.920    13.331    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.422 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          1.511    14.934    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[5]/C
+                         clock pessimism              0.276    15.210    
+                         clock uncertainty           -0.035    15.174    
+    SLICE_X51Y94         FDRE (Setup_fdre_C_R)       -0.429    14.745    klokTeller_reg[5]
+  -------------------------------------------------------------------
+                         required time                         14.745    
+                         arrival time                          -8.426    
+  -------------------------------------------------------------------
+                         slack                                  6.319    
 
 
 
@@ -811,14 +811,14 @@ Slack (MET) :             0.261ns  (arrival time - required time)
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[15]/C
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[15]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y97         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[15]/Q
+    SLICE_X51Y96         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[15]/Q
                          net (fo=2, routed)           0.117     1.743    klokTeller_reg[15]
-    SLICE_X53Y97         CARRY4 (Prop_carry4_S[3]_O[3])
+    SLICE_X51Y96         CARRY4 (Prop_carry4_S[3]_O[3])
                                                       0.108     1.851 r  klokTeller_reg[12]_i_1__1/O[3]
                          net (fo=1, routed)           0.000     1.851    klokTeller_reg[12]_i_1__1_n_4
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[15]/D
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[15]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -829,9 +829,9 @@ Slack (MET) :             0.261ns  (arrival time - required time)
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[15]/C
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[15]/C
                          clock pessimism             -0.515     1.484    
-    SLICE_X53Y97         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[15]
+    SLICE_X51Y96         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[15]
   -------------------------------------------------------------------
                          required time                         -1.589    
                          arrival time                           1.851    
@@ -839,9 +839,9 @@ Slack (MET) :             0.261ns  (arrival time - required time)
                          slack                                  0.261    
 
 Slack (MET) :             0.261ns  (arrival time - required time)
-  Source:                 klokTeller_reg[19]/C
+  Source:                 klokTeller_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[19]/D
+  Destination:            klokTeller_reg[3]/D
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
@@ -863,14 +863,14 @@ Slack (MET) :             0.261ns  (arrival time - required time)
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y98         FDRE                                         r  klokTeller_reg[19]/C
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y98         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[19]/Q
-                         net (fo=2, routed)           0.117     1.743    klokTeller_reg[19]
-    SLICE_X53Y98         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.851 r  klokTeller_reg[16]_i_1__0/O[3]
-                         net (fo=1, routed)           0.000     1.851    klokTeller_reg[16]_i_1__0_n_4
-    SLICE_X53Y98         FDRE                                         r  klokTeller_reg[19]/D
+    SLICE_X51Y93         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[3]/Q
+                         net (fo=2, routed)           0.117     1.743    klokTeller_reg[3]
+    SLICE_X51Y93         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.108     1.851 r  klokTeller_reg[0]_i_2/O[3]
+                         net (fo=1, routed)           0.000     1.851    klokTeller_reg[0]_i_2_n_4
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -881,9 +881,9 @@ Slack (MET) :             0.261ns  (arrival time - required time)
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y98         FDRE                                         r  klokTeller_reg[19]/C
+    SLICE_X51Y93         FDRE                                         r  klokTeller_reg[3]/C
                          clock pessimism             -0.515     1.484    
-    SLICE_X53Y98         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[19]
+    SLICE_X51Y93         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[3]
   -------------------------------------------------------------------
                          required time                         -1.589    
                          arrival time                           1.851    
@@ -891,9 +891,9 @@ Slack (MET) :             0.261ns  (arrival time - required time)
                          slack                                  0.261    
 
 Slack (MET) :             0.261ns  (arrival time - required time)
-  Source:                 klokTeller_reg[3]/C
+  Source:                 klokTeller_reg[19]/C
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[3]/D
+  Destination:            klokTeller_reg[19]/D
                             (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
@@ -901,8 +901,8 @@ Slack (MET) :             0.261ns  (arrival time - required time)
   Data Path Delay:        0.366ns  (logic 0.249ns (67.994%)  route 0.117ns (32.006%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.999ns
-    Source Clock Delay      (SCD):    1.483ns
+    Destination Clock Delay (DCD):    2.001ns
+    Source Clock Delay      (SCD):    1.485ns
     Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -914,15 +914,15 @@ Slack (MET) :             0.261ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.564     1.483    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[3]/C
+                         net (fo=23, routed)          0.566     1.485    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y97         FDRE                                         r  klokTeller_reg[19]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y94         FDRE (Prop_fdre_C_Q)         0.141     1.624 r  klokTeller_reg[3]/Q
-                         net (fo=2, routed)           0.117     1.742    klokTeller_reg[3]
-    SLICE_X53Y94         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.850 r  klokTeller_reg[0]_i_2__0/O[3]
-                         net (fo=1, routed)           0.000     1.850    klokTeller_reg[0]_i_2__0_n_4
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[3]/D
+    SLICE_X51Y97         FDRE (Prop_fdre_C_Q)         0.141     1.626 r  klokTeller_reg[19]/Q
+                         net (fo=2, routed)           0.117     1.744    klokTeller_reg[19]
+    SLICE_X51Y97         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.108     1.852 r  klokTeller_reg[16]_i_1__1/O[3]
+                         net (fo=1, routed)           0.000     1.852    klokTeller_reg[16]_i_1__1_n_4
+    SLICE_X51Y97         FDRE                                         r  klokTeller_reg[19]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -932,15 +932,66 @@ Slack (MET) :             0.261ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.834     1.999    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[3]/C
-                         clock pessimism             -0.515     1.483    
-    SLICE_X53Y94         FDRE (Hold_fdre_C_D)         0.105     1.588    klokTeller_reg[3]
+                         net (fo=23, routed)          0.836     2.001    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y97         FDRE                                         r  klokTeller_reg[19]/C
+                         clock pessimism             -0.515     1.485    
+    SLICE_X51Y97         FDRE (Hold_fdre_C_D)         0.105     1.590    klokTeller_reg[19]
   -------------------------------------------------------------------
-                         required time                         -1.588    
-                         arrival time                           1.850    
+                         required time                         -1.590    
+                         arrival time                           1.852    
   -------------------------------------------------------------------
                          slack                                  0.261    
+
+Slack (MET) :             0.264ns  (arrival time - required time)
+  Source:                 CLK25MHZ_reg/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            CLK25MHZ_reg/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.384ns  (logic 0.209ns (54.384%)  route 0.175ns (45.616%))
+  Logic Levels:           1  (LUT5=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.000ns
+    Source Clock Delay      (SCD):    1.484ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000     0.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
+    SLICE_X50Y96         FDRE                                         r  CLK25MHZ_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X50Y96         FDRE (Prop_fdre_C_Q)         0.164     1.648 r  CLK25MHZ_reg/Q
+                         net (fo=2, routed)           0.175     1.824    CLK25MHZ
+    SLICE_X50Y96         LUT5 (Prop_lut5_I4_O)        0.045     1.869 r  CLK25MHZ_i_1/O
+                         net (fo=1, routed)           0.000     1.869    CLK25MHZ_i_1_n_0
+    SLICE_X50Y96         FDRE                                         r  CLK25MHZ_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000     0.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
+    SLICE_X50Y96         FDRE                                         r  CLK25MHZ_reg/C
+                         clock pessimism             -0.515     1.484    
+    SLICE_X50Y96         FDRE (Hold_fdre_C_D)         0.120     1.604    CLK25MHZ_reg
+  -------------------------------------------------------------------
+                         required time                         -1.604    
+                         arrival time                           1.869    
+  -------------------------------------------------------------------
+                         slack                                  0.264    
 
 Slack (MET) :             0.264ns  (arrival time - required time)
   Source:                 klokTeller_reg[11]/C
@@ -953,8 +1004,8 @@ Slack (MET) :             0.264ns  (arrival time - required time)
   Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.999ns
-    Source Clock Delay      (SCD):    1.483ns
+    Destination Clock Delay (DCD):    2.000ns
+    Source Clock Delay      (SCD):    1.484ns
     Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -966,15 +1017,15 @@ Slack (MET) :             0.264ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.564     1.483    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[11]/C
+                         net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[11]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y96         FDRE (Prop_fdre_C_Q)         0.141     1.624 r  klokTeller_reg[11]/Q
-                         net (fo=2, routed)           0.120     1.745    klokTeller_reg[11]
-    SLICE_X53Y96         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.853 r  klokTeller_reg[8]_i_1__1/O[3]
-                         net (fo=1, routed)           0.000     1.853    klokTeller_reg[8]_i_1__1_n_4
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[11]/D
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[11]/Q
+                         net (fo=2, routed)           0.120     1.746    klokTeller_reg[11]
+    SLICE_X51Y95         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.108     1.854 r  klokTeller_reg[8]_i_1__1/O[3]
+                         net (fo=1, routed)           0.000     1.854    klokTeller_reg[8]_i_1__1_n_4
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[11]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -984,13 +1035,13 @@ Slack (MET) :             0.264ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.834     1.999    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[11]/C
-                         clock pessimism             -0.515     1.483    
-    SLICE_X53Y96         FDRE (Hold_fdre_C_D)         0.105     1.588    klokTeller_reg[11]
+                         net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[11]/C
+                         clock pessimism             -0.515     1.484    
+    SLICE_X51Y95         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[11]
   -------------------------------------------------------------------
-                         required time                         -1.588    
-                         arrival time                           1.853    
+                         required time                         -1.589    
+                         arrival time                           1.854    
   -------------------------------------------------------------------
                          slack                                  0.264    
 
@@ -1005,8 +1056,8 @@ Slack (MET) :             0.264ns  (arrival time - required time)
   Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.999ns
-    Source Clock Delay      (SCD):    1.483ns
+    Destination Clock Delay (DCD):    2.000ns
+    Source Clock Delay      (SCD):    1.484ns
     Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1018,15 +1069,15 @@ Slack (MET) :             0.264ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.564     1.483    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[7]/C
+                         net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y95         FDRE (Prop_fdre_C_Q)         0.141     1.624 r  klokTeller_reg[7]/Q
-                         net (fo=2, routed)           0.120     1.745    klokTeller_reg[7]
-    SLICE_X53Y95         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.853 r  klokTeller_reg[4]_i_1__1/O[3]
-                         net (fo=1, routed)           0.000     1.853    klokTeller_reg[4]_i_1__1_n_4
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[7]/D
+    SLICE_X51Y94         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[7]/Q
+                         net (fo=2, routed)           0.120     1.746    klokTeller_reg[7]
+    SLICE_X51Y94         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.108     1.854 r  klokTeller_reg[4]_i_1__1/O[3]
+                         net (fo=1, routed)           0.000     1.854    klokTeller_reg[4]_i_1__1_n_4
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1036,13 +1087,13 @@ Slack (MET) :             0.264ns  (arrival time - required time)
     E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.834     1.999    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y95         FDRE                                         r  klokTeller_reg[7]/C
-                         clock pessimism             -0.515     1.483    
-    SLICE_X53Y95         FDRE (Hold_fdre_C_D)         0.105     1.588    klokTeller_reg[7]
+                         net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y94         FDRE                                         r  klokTeller_reg[7]/C
+                         clock pessimism             -0.515     1.484    
+    SLICE_X51Y94         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[7]
   -------------------------------------------------------------------
-                         required time                         -1.588    
-                         arrival time                           1.853    
+                         required time                         -1.589    
+                         arrival time                           1.854    
   -------------------------------------------------------------------
                          slack                                  0.264    
 
@@ -1071,14 +1122,14 @@ Slack (MET) :             0.267ns  (arrival time - required time)
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[12]/C
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[12]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y97         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[12]/Q
+    SLICE_X51Y96         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[12]/Q
                          net (fo=2, routed)           0.116     1.742    klokTeller_reg[12]
-    SLICE_X53Y97         CARRY4 (Prop_carry4_S[0]_O[0])
+    SLICE_X51Y96         CARRY4 (Prop_carry4_S[0]_O[0])
                                                       0.115     1.857 r  klokTeller_reg[12]_i_1__1/O[0]
                          net (fo=1, routed)           0.000     1.857    klokTeller_reg[12]_i_1__1_n_7
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[12]/D
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[12]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1089,9 +1140,9 @@ Slack (MET) :             0.267ns  (arrival time - required time)
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[12]/C
+    SLICE_X51Y96         FDRE                                         r  klokTeller_reg[12]/C
                          clock pessimism             -0.515     1.484    
-    SLICE_X53Y97         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[12]
+    SLICE_X51Y96         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[12]
   -------------------------------------------------------------------
                          required time                         -1.589    
                          arrival time                           1.857    
@@ -1109,58 +1160,6 @@ Slack (MET) :             0.267ns  (arrival time - required time)
   Data Path Delay:        0.372ns  (logic 0.256ns (68.766%)  route 0.116ns (31.234%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.999ns
-    Source Clock Delay      (SCD):    1.483ns
-    Clock Pessimism Removal (CPR):    0.515ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000     0.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.564     1.483    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[8]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X53Y96         FDRE (Prop_fdre_C_Q)         0.141     1.624 r  klokTeller_reg[8]/Q
-                         net (fo=2, routed)           0.116     1.741    klokTeller_reg[8]
-    SLICE_X53Y96         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     1.856 r  klokTeller_reg[8]_i_1__1/O[0]
-                         net (fo=1, routed)           0.000     1.856    klokTeller_reg[8]_i_1__1_n_7
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[8]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000     0.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.834     1.999    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y96         FDRE                                         r  klokTeller_reg[8]/C
-                         clock pessimism             -0.515     1.483    
-    SLICE_X53Y96         FDRE (Hold_fdre_C_D)         0.105     1.588    klokTeller_reg[8]
-  -------------------------------------------------------------------
-                         required time                         -1.588    
-                         arrival time                           1.856    
-  -------------------------------------------------------------------
-                         slack                                  0.267    
-
-Slack (MET) :             0.267ns  (arrival time - required time)
-  Source:                 klokTeller_reg[14]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[14]/D
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.372ns  (logic 0.252ns (67.654%)  route 0.120ns (32.346%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    2.000ns
     Source Clock Delay      (SCD):    1.484ns
     Clock Pessimism Removal (CPR):    0.515ns
@@ -1175,14 +1174,14 @@ Slack (MET) :             0.267ns  (arrival time - required time)
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[14]/C
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y97         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[14]/Q
-                         net (fo=2, routed)           0.120     1.746    klokTeller_reg[14]
-    SLICE_X53Y97         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     1.857 r  klokTeller_reg[12]_i_1__1/O[2]
-                         net (fo=1, routed)           0.000     1.857    klokTeller_reg[12]_i_1__1_n_5
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[14]/D
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[8]/Q
+                         net (fo=2, routed)           0.116     1.742    klokTeller_reg[8]
+    SLICE_X51Y95         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.115     1.857 r  klokTeller_reg[8]_i_1__1/O[0]
+                         net (fo=1, routed)           0.000     1.857    klokTeller_reg[8]_i_1__1_n_7
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[8]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1193,9 +1192,9 @@ Slack (MET) :             0.267ns  (arrival time - required time)
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y97         FDRE                                         r  klokTeller_reg[14]/C
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[8]/C
                          clock pessimism             -0.515     1.484    
-    SLICE_X53Y97         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[14]
+    SLICE_X51Y95         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[8]
   -------------------------------------------------------------------
                          required time                         -1.589    
                          arrival time                           1.857    
@@ -1213,6 +1212,58 @@ Slack (MET) :             0.267ns  (arrival time - required time)
   Data Path Delay:        0.372ns  (logic 0.252ns (67.654%)  route 0.120ns (32.346%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.001ns
+    Source Clock Delay      (SCD):    1.485ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000     0.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          0.566     1.485    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y97         FDRE                                         r  klokTeller_reg[18]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X51Y97         FDRE (Prop_fdre_C_Q)         0.141     1.626 r  klokTeller_reg[18]/Q
+                         net (fo=2, routed)           0.120     1.747    klokTeller_reg[18]
+    SLICE_X51Y97         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.858 r  klokTeller_reg[16]_i_1__1/O[2]
+                         net (fo=1, routed)           0.000     1.858    klokTeller_reg[16]_i_1__1_n_5
+    SLICE_X51Y97         FDRE                                         r  klokTeller_reg[18]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK100MHZ (IN)
+                         net (fo=0)                   0.000     0.000    CLK100MHZ
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
+                         net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
+                         net (fo=23, routed)          0.836     2.001    CLK100MHZ_IBUF_BUFG
+    SLICE_X51Y97         FDRE                                         r  klokTeller_reg[18]/C
+                         clock pessimism             -0.515     1.485    
+    SLICE_X51Y97         FDRE (Hold_fdre_C_D)         0.105     1.590    klokTeller_reg[18]
+  -------------------------------------------------------------------
+                         required time                         -1.590    
+                         arrival time                           1.858    
+  -------------------------------------------------------------------
+                         slack                                  0.267    
+
+Slack (MET) :             0.268ns  (arrival time - required time)
+  Source:                 klokTeller_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            klokTeller_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.373ns  (logic 0.252ns (67.585%)  route 0.121ns (32.415%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    2.000ns
     Source Clock Delay      (SCD):    1.484ns
     Clock Pessimism Removal (CPR):    0.515ns
@@ -1227,14 +1278,14 @@ Slack (MET) :             0.267ns  (arrival time - required time)
                          net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.565     1.484    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y98         FDRE                                         r  klokTeller_reg[18]/C
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X53Y98         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[18]/Q
-                         net (fo=2, routed)           0.120     1.746    klokTeller_reg[18]
-    SLICE_X53Y98         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     1.857 r  klokTeller_reg[16]_i_1__0/O[2]
-                         net (fo=1, routed)           0.000     1.857    klokTeller_reg[16]_i_1__0_n_5
-    SLICE_X53Y98         FDRE                                         r  klokTeller_reg[18]/D
+    SLICE_X51Y95         FDRE (Prop_fdre_C_Q)         0.141     1.625 r  klokTeller_reg[10]/Q
+                         net (fo=2, routed)           0.121     1.746    klokTeller_reg[10]
+    SLICE_X51Y95         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.857 r  klokTeller_reg[8]_i_1__1/O[2]
+                         net (fo=1, routed)           0.000     1.857    klokTeller_reg[8]_i_1__1_n_5
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -1245,66 +1296,14 @@ Slack (MET) :             0.267ns  (arrival time - required time)
                          net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
                          net (fo=23, routed)          0.835     2.000    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y98         FDRE                                         r  klokTeller_reg[18]/C
+    SLICE_X51Y95         FDRE                                         r  klokTeller_reg[10]/C
                          clock pessimism             -0.515     1.484    
-    SLICE_X53Y98         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[18]
+    SLICE_X51Y95         FDRE (Hold_fdre_C_D)         0.105     1.589    klokTeller_reg[10]
   -------------------------------------------------------------------
                          required time                         -1.589    
                          arrival time                           1.857    
   -------------------------------------------------------------------
-                         slack                                  0.267    
-
-Slack (MET) :             0.267ns  (arrival time - required time)
-  Source:                 klokTeller_reg[2]/C
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            klokTeller_reg[2]/D
-                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.372ns  (logic 0.252ns (67.654%)  route 0.120ns (32.346%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.999ns
-    Source Clock Delay      (SCD):    1.483ns
-    Clock Pessimism Removal (CPR):    0.515ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000     0.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           0.644     0.894    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.920 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.564     1.483    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[2]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X53Y94         FDRE (Prop_fdre_C_Q)         0.141     1.624 r  klokTeller_reg[2]/Q
-                         net (fo=2, routed)           0.120     1.745    klokTeller_reg[2]
-    SLICE_X53Y94         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     1.856 r  klokTeller_reg[0]_i_2__0/O[2]
-                         net (fo=1, routed)           0.000     1.856    klokTeller_reg[0]_i_2__0_n_5
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    E3                                                0.000     0.000 r  CLK100MHZ (IN)
-                         net (fo=0)                   0.000     0.000    CLK100MHZ
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  CLK100MHZ_IBUF_inst/O
-                         net (fo=1, routed)           0.699     1.136    CLK100MHZ_IBUF
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.165 r  CLK100MHZ_IBUF_BUFG_inst/O
-                         net (fo=23, routed)          0.834     1.999    CLK100MHZ_IBUF_BUFG
-    SLICE_X53Y94         FDRE                                         r  klokTeller_reg[2]/C
-                         clock pessimism             -0.515     1.483    
-    SLICE_X53Y94         FDRE (Hold_fdre_C_D)         0.105     1.588    klokTeller_reg[2]
-  -------------------------------------------------------------------
-                         required time                         -1.588    
-                         arrival time                           1.856    
-  -------------------------------------------------------------------
-                         slack                                  0.267    
+                         slack                                  0.268    
 
 
 
@@ -1319,35 +1318,35 @@ Sources:            { CLK100MHZ }
 
 Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845      BUFGCTRL_X0Y16  CLK100MHZ_IBUF_BUFG_inst/I
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X52Y96    CLK25MHZ_reg/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y99    klokTeller_reg[21]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y94    klokTeller_reg[2]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y94    klokTeller_reg[3]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y95    klokTeller_reg[4]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y95    klokTeller_reg[5]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y95    klokTeller_reg[6]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y95    klokTeller_reg[7]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X53Y96    klokTeller_reg[8]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X52Y96    CLK25MHZ_reg/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[2]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[3]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[4]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[5]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[6]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[7]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y96    klokTeller_reg[8]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y96    klokTeller_reg[9]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X52Y96    CLK25MHZ_reg/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X52Y96    CLK25MHZ_reg/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y99    klokTeller_reg[21]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[2]/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[2]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[3]/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y94    klokTeller_reg[3]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[4]/C
-High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[4]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X53Y95    klokTeller_reg[5]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y94    klokTeller_reg[5]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y94    klokTeller_reg[6]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y94    klokTeller_reg[7]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y95    klokTeller_reg[8]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y95    klokTeller_reg[9]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y93    klokTeller_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y95    klokTeller_reg[10]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y95    klokTeller_reg[11]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X51Y96    klokTeller_reg[12]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[5]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[6]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[7]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[8]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[9]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y93    klokTeller_reg[0]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[10]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[11]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y96    klokTeller_reg[12]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y96    klokTeller_reg[13]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[5]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[5]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[6]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[6]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[7]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y94    klokTeller_reg[7]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[8]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[8]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[9]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y95    klokTeller_reg[9]/C
 
 
 
